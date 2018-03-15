@@ -160,7 +160,7 @@ Authors:
 EOF
       exit 0;;
     --version)
-      echo "1.0.0"
+      echo "1.0.1"
       exit 0;;
     -v|--verbose)
       verbose=1
@@ -218,7 +218,7 @@ function execute () {
   local cmd="ssh $user@$host '$remote_cmd'"
   notice "$cmd"
   eval "$cmd"
-  [ $? == 0 ] || error "An error occured while trying to execute "'"'$remote_cmd'"'" on "'"'$host'"'"."
+  [ $? == 0 ] || error "An error occured while trying to execute "'"'"$remote_cmd"'"'" on "'"'"$host"'"'"."
 }
 
 # Accepts one argument: path, a file path;
@@ -229,7 +229,7 @@ function retrieve () {
   local cmd="scp $user@$host:$path $backups"
   notice "$cmd"
   eval "$cmd"
-  [ $? == 0 ] || error "An error occured while trying to download "'"'$path'"'" from "'"'$host'"'"."
+  [ $? == 0 ] || error "An error occured while trying to download "'"'"$path"'"'" from "'"'"$host"'"'"."
 }
 
 # Accepts one argument: path, a local file path;
@@ -240,7 +240,7 @@ function hash () {
   local cmd="sha1sum $path > $path.sha1"
   notice "$cmd"
   eval "$cmd"
-  [ $? == 0 ] || error "An error occured while trying to hash "'"'$path'"'"."
+  [ $? == 0 ] || error "An error occured while trying to hash "'"'"$path"'"'"."
 }
 
 # Accepts one argument: path, a local file path;
@@ -250,7 +250,7 @@ function upload () {
   local cmd="aws s3 cp $path $bucket"
   notice "$cmd"
   eval "$cmd"
-  [ $? == 0 ] || error "An error occured while trying to upload "'"'$path'"'" to "'"'$bucket'"'"."
+  [ $? == 0 ] || error "An error occured while trying to upload "'"'"$path"'"'" to "'"'"$bucket"'"'"."
 }
 
 # I. Backup the web directory.

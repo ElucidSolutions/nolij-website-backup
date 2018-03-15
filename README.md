@@ -18,9 +18,9 @@ This script uses SSH and SCP to connect to remote servers. To run,
 SSH must be configured so that it can connect to the given servers
 without prompting for a password. To do this you should add an entry
 to the ~/.ssh/config file for each server that you plan to backup
-using this script. For example, given a remote server having at
-52.4.197.127 you can configure SSH to connect as "ubuntu" without
-a password by adding something like the following to ~/.ssh/config:
+using this script. For example, given a remote server at 52.4.197.127
+you can configure SSH to connect as "ubuntu" without a password by
+adding something like the following to ~/.ssh/config:
 
 ```
 Host 52.4.197.127
@@ -38,8 +38,10 @@ this. For example run:
 
 ```
 > mysql_config_editor set --login-path="client" --host="localhost" \
-    --user="USER" --password`
+    --user="USER" --password
 ```
+
+Warning: When you enter your password enclose it in double quotes.
 
 to associate a default password with the user "USER".
 
