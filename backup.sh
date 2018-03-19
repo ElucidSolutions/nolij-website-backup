@@ -1,3 +1,4 @@
+#!/bin/bash
 # The following script logs into a remote server,
 # creates a tar archive of a website directory,
 # creates a MySQL dump of a given MySQL database,
