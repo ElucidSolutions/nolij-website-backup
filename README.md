@@ -12,6 +12,26 @@ databases and to send notification emails.
 Configuring Dependencies:
 -------------------------
 
+### Configuring AWS CLI
+
+This script relies on the AWS CLI utility to upload packages to S3
+buckets. This commandline utility can be installed using `apt
+install awscli`. Once installed you will need to configure it by
+creating an AWS IAM role and generating sign in credentials keys.
+When you generate these keys AWS will prompt you to download the
+private key as a PEM file. At Nolij, we use the following key:
+http://wiki.elucidsolutions.com/index.php/Elucid_Website_Server:_GSA_S3_Account.
+
+To configure AWS CLI to use a key pair, create the
+~/.aws/credentials file and add the following lines (substituting
+the key ID and secret key with their correct values).
+
+```
+[default]
+aws_access_key_id=AKIAIOSFODNN7EXAMPLE
+aws_secret_access_key=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+```
+
 ### Configuring SSH
 
 This script uses SSH and SCP to connect to remote servers. To run,
